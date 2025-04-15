@@ -29,52 +29,154 @@
         <h2>お問い合わせフォーム</h2>
         <p>以下のフォームに必要事項をご記入の上、送信してください。</p>
         <div class="form-wrap">
-          <form action="mail.php" method="post">
+          <form action="submit.php" method="post">
             <table>
               <tr>
                 <th>お名前</th>
-                <td><input type="text" name="name" placeholder="お名前を入力してください" required></td>
-              </tr>
-              <tr>
-                <th>会社名</th>
-                <td><input type="text" name="company" placeholder="会社名を入力してください"></td>
+                <td><input type="text" name="name" placeholder="例: 山田 太郎" required></td>
               </tr>
               <tr>
                 <th>メールアドレス</th>
-                <td><input type="email" name="email" placeholder="メールアドレスを入力してください" required></td>
-              </tr>
-              <tr>
-                <th>電話番号</th>
-                <td><input type="tel" name="phone" placeholder="電話番号を入力してください"></td>
+                <td><input type="email" name="email" placeholder="例: example@example.com" required></td>
               </tr>
               <tr>
                 <th>お問い合わせ内容</th>
-                <td><textarea name="message" placeholder="お問い合わせ内容を入力してください" rows="5" required></textarea></td>
+                <td><textarea name="message" rows="5" placeholder="お問い合わせ内容を入力してください" required></textarea></td>
+              </tr>
+              <tr>
+                <td colspan="2" style="text-align: center;">
+                  <input type="hidden" id="recaptcha_token" name="recaptcha_token">
+                  <button type="submit">送信</button>
+                </td>
               </tr>
             </table>
-            <button type="submit">送信</button>
           </form>
         </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="inner">
+        <h2>swiperのセクション</h2>
+        <!-- Swiper -->
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="images/noimage02.png" alt="Banner 1"></div>
+            <div class="swiper-slide"><img src="images/noimage02.png" alt="Banner 2"></div>
+            <div class="swiper-slide"><img src="images/noimage02.png" alt="Banner 3"></div>
+          </div>
+          <!-- Add Pagination -->
+          <div class="swiper-pagination"></div>
+          <!-- Add Navigation -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+
+        <!-- Swiper CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+        <!-- Swiper JS -->
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+        <script>
+          const swiper = new Swiper('.swiper-container', {
+            speed: 1000,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+              delay: 5000,
+              disableOnInteraction: false,
+            },
+            pagination: {
+              el: '.swiper-pagination',
+              clickable: true,
+            },
+            navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            },
+          });
+        </script>
+
+        <style>
+          .swiper-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+            overflow: hidden;
+          }
+
+          .swiper-slide img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: black;
+          }
+
+          .swiper-button-next,
+          .swiper-button-prev {
+            color: #007BFF;
+            position: absolute;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            z-index: 10;
+          }
+
+          .swiper-button-next {
+            right: 10px;
+          }
+
+          .swiper-button-prev {
+            left: 10px;
+          }
+
+          .swiper-pagination {
+            position: absolute;
+            bottom: 0 !important;
+            text-align: center;
+            width: 100%;
+            z-index: 10;
+          }
+
+          .swiper-pagination-bullet {
+            background: #007BFF;
+          }
+        </style>
       </div>
     </section>
   </main>
 
   <style>
     body {
-      font-family: 'Arial', sans-serif;
+      font-family: yakuhanjp, Arial, sans-serif;
       line-height: 1.6;
       margin: 0;
       padding: 0;
+      padding-top: 100px;
       background-color: #f9f9f9;
     }
 
+    section {
+      margin-bottom: 100px;
+    }
+
+    .inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
     h2 {
+      font-size: 24px;
       text-align: center;
       color: #333;
       margin-bottom: 20px;
     }
 
     p {
+      font-size: 16px;
       text-align: center;
       color: #666;
       margin-bottom: 30px;
@@ -156,15 +258,31 @@
   <footer></footer>
   <!-- js -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script type="text/javascript" src="js/lightbox.min.js"></script>
-  <script type="text/javascript" src="js/jquery.inview.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/yakuhanjp@4.0.1/dist/js/yakuhanjp.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script>
-    // https://github.com/protonet/jquery.inview /で対応
-    $('.scroll').on('inview', function () { // .sxrollが表示されたら
-      $(this).addClass('active'); //処理を記述
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from(".form-wrap", {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      scrollTrigger: {
+        trigger: ".form-wrap",
+        start: "top 80%",
+        toggleActions: "play none none none"
+      }
+    });
+  </script>
+  <script src="https://www.google.com/recaptcha/api.js?render=6LflXFMqAAAAADkDkadRRhOvSS4SJL6MDWxxf_KC"></script>
+  <script>
+    grecaptcha.ready(function () {
+      grecaptcha.execute('6LflXFMqAAAAADkDkadRRhOvSS4SJL6MDWxxf_KC', { action: 'submit' }).then(function (token) {
+        // トークンをhiddenフィールドにセット
+        document.getElementById('recaptcha_token').value = token;
+      });
     });
   </script>
 </body>
 
 </html>
-</td>

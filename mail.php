@@ -6,6 +6,32 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $email = htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8');
   $phone = htmlspecialchars($_POST['phone'], ENT_QUOTES, 'UTF-8');
   $message = htmlspecialchars($_POST['message'], ENT_QUOTES, 'UTF-8');
+  $recaptchaToken = $_POST['recaptcha_token'];
+
+  // reCAPTCHAの検証
+  $recaptchaSecret = "6LflXFMqAAAAAFb4-jhcW3PDQaVIxTfZklKc8nPo";
+  $recaptchaUrl = "https://www.google.com/recaptcha/api/siteverify";
+  $recaptchaData = [
+    'secret' => $recaptchaSecret,
+    'response' => $recaptchaToken
+  ];
+
+  $options = [
+    'http' => [
+      'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+      'method'  => 'POST',
+      'content' => http_build_query($recaptchaData)
+    ]
+  ];
+
+  $context  = stream_context_create($options);
+  $result = file_get_contents($recaptchaUrl, false, $context);
+  $resultJson = json_decode($result, true);
+
+  if (!$resultJson['success']) {
+    echo "reCAPTCHAの検証に失敗しました。";
+    exit;
+  }
 
   // 送信先メールアドレス
   $to = "register@g-hill.jp";
@@ -27,7 +53,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
   // メール送信
   if (mail($to, $subject, $body, $headers)) {
-    // 自動返信メールの件名
     $autoReplySubject = "お問い合わせありがとうございます";
 
     // 自動返信メール本文
