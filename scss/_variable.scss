@@ -1,0 +1,69 @@
+// 変数の設定
+$blue:#367ABD;
+$red:#EE4035;
+$yellow:#F9ED3A;
+$text-color: #111111 !default;
+$link-color: #2962ff !default;
+$link-hover-color: darken($link-color, 5%) !default;
+
+
+//vwを自動計算
+@use "sass:math";
+$base-viewport: 1440; // ブレイクポイントはデザインボードに合わせてください
+$base-viewport_sp: 375; // ブレイクポイントはデザインボードに合わせてください
+
+@function pxtovw($size-in-px) {
+  @return math.div($size-in-px, $base-viewport) * 100vw;
+}
+@function pxtovw_sp($size-in-px) {
+  @return math.div($size-in-px, $base-viewport_sp) * 100vw;
+}
+
+
+// 彩度を上げる color: saturate($base-color, 15%);
+// 彩度を下げる color: desaturate($base-color, 15%);
+// 輝度を上げる color: lighten($base-color, 15%);
+// 輝度を下げる color: darken($base-color, 15%);
+// rgbaで透明度を変える color: rgba($base-color, 0.8);
+// 色の反転 color: invert($base-color);
+// グレースケール color: grayscale($base-color);
+
+// googleフォント日本語
+// @import url('https://fonts.googleapis.com/css?family=Kosugi|Kosugi+Maru|M+PLUS+1p|M+PLUS+Rounded+1c|Noto+Sans+JP|Noto+Sans+SC|Noto+Sans+TC|Noto+Serif+JP|Noto+Serif+SC|Noto+Serif+TC|Sawarabi+Gothic');
+
+// font-family: 'Noto Sans JP', sans-serif;
+// font-family: 'Noto Sans TC', sans-serif;
+// font-family: 'M PLUS 1p', sans-serif;
+// font-family: 'Noto Sans SC', sans-serif;
+// font-family: 'Noto Serif TC', serif;
+// font-family: 'Noto Serif SC', serif;
+// font-family: 'Sawarabi Gothic', sans-serif;
+// font-family: 'Noto Serif JP', serif;
+// font-family: 'M PLUS Rounded 1c', sans-serif;
+// font-family: 'Kosugi Maru', sans-serif;
+// font-family: 'Kosugi', sans-serif;
+
+// Font Awesome
+// xxx:before {
+// display: none;
+// font-family: "Font Awesome 5 Regular";
+// content: "\f1ea";
+// margin-right: 10px;
+// }
+
+// awesome5のフリー
+// &:after {
+// font-family: "Font Awesome 5 Free";
+// content: "\f105";
+// font-weight:900;
+// }
+
+
+// https://fontawesome.com/icons
+// 幅を揃える .fa-fw
+// サイズ fa-xs fa-sm fa-lg fa-2x fa-3x fa-4x fa-5x fa-6x fa-7x fa-8x fa-9x fa-10x
+// ボーダーで囲う fa-border
+// 回転 fa-rotate-90
+// 反転 fa-flip-horizontal fa-flip-vertical
+// 回す fa-spin
+// 左寄せ右寄せ fa-pull-right fa-pull-left

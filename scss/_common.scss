@@ -1,0 +1,80 @@
+/*************************************************
+common-style
+*************************************************/
+@mixin base_width{
+  margin: 0 auto;
+  width: 1200px;
+}
+// @extendでスタイルの継承
+// @mixinでステイルの定義
+// @includeでmixinの呼び出し
+
+// ブレイクポイント
+// PC基準でコーディングする場合
+$breakpoints: (
+  "sm": "screen and (max-width: 599px)", //スマホ
+  "md": "screen and (max-width: 1024px)", //タブレット
+) !default;
+@mixin mq($breakpoint: sm) {
+  @media #{map-get($breakpoints , $breakpoint)} {
+    @content;
+  }
+}
+
+// スマホ基準でコーディングする場合
+// $breakpoints: (
+//   "md": "screen and (min-width: 600px)", //タブレット
+//   "lg": "screen and (min-width: 1025px)", //パソコン
+// ) !default;
+// @mixin mq($breakpoint: lg) {
+//   @media #{map-get($breakpoints , $breakpoint)} {
+//     @content;
+//   }
+// }
+
+*{
+  box-sizing: border-box;
+}
+
+.ie_ObjectFit {
+object-fit: cover;
+font-family: 'object-fit: cover;'
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body{
+  scroll-behavior: smooth;
+  font-family: YakuHanJP, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", Meiryo, sans-serif;
+  // font-family: YakuHanMP, "Hiragino Mincho ProN", "Noto Serif JP", "Yu Mincho", YuMincho, serif;
+  // font-family: YakuHanRP, "M PLUS Rounded 1c", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", Meiryo, sans-serif;
+  min-height: 100dvh;
+}
+
+.clearfix:after {
+    content:"";
+    display:block;
+    clear:both;
+}
+
+
+// /iOSでのデフォルトスタイルをリセット /
+input[type="submit"],
+input[type="button"] {
+border-radius: 0;
+-webkit-box-sizing: content-box;
+-webkit-appearance: button;
+appearance: button;
+border: none;
+box-sizing: border-box;
+&::-webkit-search-decoration {
+display: none;
+}
+&:focus {
+outline-offset: -2px;
+}
+}
+

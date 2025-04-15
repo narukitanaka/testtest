@@ -1,0 +1,36 @@
+@use "variable"as v;
+@use "common"as c;
+
+.u-pc {
+	display: block;
+	@include c.mq(sm) {
+		display: none!important;
+	}
+}
+.u-pc-inlineblock {
+	display: inline-block;
+	@include c.mq(sm) {
+		display: none;
+	}
+}
+.u-sp {
+	display: none;
+	@include c.mq(sm) {
+		display: block;
+	}
+}
+.u-sp-inlineblock {
+	display: none;
+	@include c.mq(sm) {
+		display: inline-block;
+	}
+}
+.u-sp-inline {
+	display: none;
+	@include c.mq(sm) {
+		display: inline;
+	}
+}
+.u-align--center {
+	text-align: center;
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <!-- favicon -->
+  <link rel="icon" type="image/png" href="images/fav.png" />
+  <!-- <meta name="robots" content="index, follow"> -->
+  <meta name="format-detection" content="telephone=no">
+  <!-- css -->
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/lightbox.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/yakuhanjp@4.0.1/dist/css/yakuhanjp.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <title>サイトタイトル</title>
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+</head>
+
+<body>
+  <header>
+  </header>
+
+  <main>
+    <section class="thanks-section">
+      <div class="inner">
+        <h2>お問い合わせありがとうございます。</h2>
+        <p>お問い合わせありがとうございました</p>
+        <p>ご記入いただきました内容を確認の上、担当者よりご連絡させていただきます。</p>
+        <div class="btn-wrap">
+          <a href="./">HOME</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <style>
+    .thanks-section {
+      padding: 50px 20px;
+      background-color: #f9f9f9;
+      text-align: center;
+    }
+
+    .thanks-section .inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .thanks-section h2 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .thanks-section p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .thanks-section .btn-wrap {
+      margin-top: 30px;
+    }
+
+    .thanks-section .btn-wrap a {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      color: #fff;
+      background-color: #007bff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .thanks-section .btn-wrap a:hover {
+      background-color: #0056b3;
+    }
+  </style>
+
+  <footer></footer>
+  <!-- js -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script type="text/javascript" src="js/lightbox.min.js"></script>
+  <script type="text/javascript" src="js/jquery.inview.min.js"></script>
+  <script>
+    // https://github.com/protonet/jquery.inview /で対応
+    $('.scroll').on('inview', function () { // .sxrollが表示されたら
+      $(this).addClass('active'); //処理を記述
+    });
+  </script>
+</body>
+
+</html>
+</td>

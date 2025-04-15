@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <!-- favicon -->
+  <link rel="icon" type="image/png" href="images/fav.png" />
+  <!-- <meta name="robots" content="index, follow"> -->
+  <meta name="format-detection" content="telephone=no">
+  <!-- css -->
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/lightbox.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/yakuhanjp@4.0.1/dist/css/yakuhanjp.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <title>コパイロットのテスト</title>
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+</head>
+
+<body>
+  <header></header>
+
+  <main>
+    <section>
+      <div class="inner">
+        <h2>お問い合わせフォーム</h2>
+        <p>以下のフォームに必要事項をご記入の上、送信してください。</p>
+        <div class="form-wrap">
+          <form action="mail.php" method="post">
+            <table>
+              <tr>
+                <th>お名前</th>
+                <td><input type="text" name="name" placeholder="お名前を入力してください" required></td>
+              </tr>
+              <tr>
+                <th>会社名</th>
+                <td><input type="text" name="company" placeholder="会社名を入力してください"></td>
+              </tr>
+              <tr>
+                <th>メールアドレス</th>
+                <td><input type="email" name="email" placeholder="メールアドレスを入力してください" required></td>
+              </tr>
+              <tr>
+                <th>電話番号</th>
+                <td><input type="tel" name="phone" placeholder="電話番号を入力してください"></td>
+              </tr>
+              <tr>
+                <th>お問い合わせ内容</th>
+                <td><textarea name="message" placeholder="お問い合わせ内容を入力してください" rows="5" required></textarea></td>
+              </tr>
+            </table>
+            <button type="submit">送信</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    p {
+      text-align: center;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .form-wrap {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      width: 30%;
+      color: #333;
+      font-weight: bold;
+    }
+
+    td input,
+    td textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    td input:focus,
+    td textarea:focus {
+      border-color: #007BFF;
+      outline: none;
+    }
+
+    button[type="submit"] {
+      display: block;
+      margin: 20px auto 0;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    @media (max-width: 768px) {
+
+      th,
+      td {
+        display: block;
+        width: 100%;
+      }
+
+      th {
+        margin-bottom: 5px;
+      }
+    }
+  </style>
+
+  <footer></footer>
+  <!-- js -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script type="text/javascript" src="js/lightbox.min.js"></script>
+  <script type="text/javascript" src="js/jquery.inview.min.js"></script>
+  <script>
+    // https://github.com/protonet/jquery.inview /で対応
+    $('.scroll').on('inview', function () { // .sxrollが表示されたら
+      $(this).addClass('active'); //処理を記述
+    });
+  </script>
+</body>
+
+</html>
+</td>
